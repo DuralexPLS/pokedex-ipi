@@ -1,0 +1,5 @@
+<span *ngFor="let pokemon of pokemonArray">
+    {{pokemon.id}}
+    {{pokemon.name}}
+    <ul *ngFor="let type of pokemon.types"> <li>{{ type }}</li> </ul>
+</span>
