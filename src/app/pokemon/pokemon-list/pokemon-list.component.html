@@ -1,14 +1,26 @@
-<table class="table table-bordered">
-    <thead>
-        <th>Id</th>
-        <th>Nom</th>
-        <th>Types</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let pokemon of pokemonArray">
-            <td>{{pokemon.id}}</td>
-            <td>{{pokemon.name}}</td>
-            <td *ngFor="let type of pokemon.types"> {{ type }} </td>
-        </tr>
-    </tbody>
-</table>
+<div class="container">
+    <!--Container pour la grid-->
+    <div class="row g-5 row-cols-1 row-cols-md-3 g-4">
+        <!--g-5 pour le padding-->
+        <div *ngFor = "let pokemon of pokemonArray" (click)="setCurrentPokemon(pokemon)">
+            <!--ngFor pour afficher les elements d'une liste-->
+            <div class="card flex-row" id="pkmnCard" pokemonBorderCard>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ pokemon.name }}
+                    </h5>
+                    <div class="card-text">
+                        <div class="{{ pokemon.type1! | pokemonTypeColor }} rounded-pill">
+                            {{ pokemon.type1 }}
+                        </div>
+                        <div class="{{ pokemon.type2! | pokemonTypeColor }} rounded-pill">
+                            {{ pokemon.type2 }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-pokemon-display *ngIf="currentPokemon" [model]="currentPokemon" (emitPokemon)="updateList($event)"></app-pokemon-display>
