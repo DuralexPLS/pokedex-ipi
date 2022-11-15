@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+.badge-Feu {
+    background-color: #EE8130;
+}
+
+.badge-Eau {
+    background-color: #6390F0;
+}
+
+.badge-Plante {
+    background-color: #7AC74C;
+}
+
+.badge-Insecte {
+    background-color: #A6B91A;
+}
+
+.badge-Normal {
+    background-color: #A8A77A;
+}
+
+.badge-Vol {
+    background-color: #A98FF3;
+}
+
+.badge-Poison {
+    background-color: #A33EA1;
+}
+
+.badge-Fée {
+    background-color: #D685AD;
+}
+
+.badge-Psy {
+    background-color: #F95587;
+}
+
+.badge-Electrik {
+    background-color: #F7D02C;
+}
+
+.badge-Combat {
+    background-color: #C22E28;
+}

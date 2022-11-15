@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IPokemon, Pokemon } from 'src/app/pokemon.model';
 
 @Component({
@@ -11,8 +12,13 @@ export class PokemonDisplayComponent implements OnInit {
 
   @Input()
   model : IPokemon | null = null;
+
   @Output()
   emitPokemon: EventEmitter<IPokemon> = new EventEmitter<IPokemon>();
+
+  pokemon: Pokemon|undefined;
+  pokemonArray: Array<Pokemon> = new Array<Pokemon>();
+
 
   submitted : boolean = false
   pokemonForm = this.fb.group({
@@ -21,7 +27,7 @@ export class PokemonDisplayComponent implements OnInit {
     type2 : ['']
   }, {updateOn : 'submit'})
   
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.submitted = false;
@@ -29,6 +35,14 @@ export class PokemonDisplayComponent implements OnInit {
       this.model = new Pokemon(0,'','','');
     } else {
       this.pokemonForm.patchValue(this.model!)
+    }
+
+    this.pokemonArray.push(new Pokemon(1,"Bulbizarre","Plante","Poison"));
+    this.pokemonArray.push(new Pokemon(2,"Pikachu","Electrik",""));
+
+    const pokemonId: string|null = this.route.snapshot.paramMap.get('id');
+    if(pokemonId){
+      this.pokemon = this.pokemonArray.find(pokemon => pokemon.id == +pokemonId);
     }
   }
 
@@ -46,6 +60,8 @@ export class PokemonDisplayComponent implements OnInit {
     }
   }
 
-  
+  goToPokemonList(){
+    this.router.navigate(['/pokemon-list']);
+  }
 
 }

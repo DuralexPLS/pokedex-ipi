@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IPokemon, Pokemon } from 'src/app/pokemon.model';
 
 @Component({
@@ -11,7 +12,7 @@ export class PokemonListComponent implements OnInit {
   pokemonArray: Array<Pokemon> = new Array<Pokemon>();
   currentPokemon: IPokemon | undefined | null;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.pokemonArray.push(new Pokemon(1,"Bulbizarre","Plante","Poison"));
@@ -26,6 +27,10 @@ export class PokemonListComponent implements OnInit {
   updateList(pokemon: IPokemon){
     let indexItem: number = this.pokemonArray.findIndex(p => p.id === pokemon.id);
     this.pokemonArray[indexItem] = {...this.pokemonArray[indexItem], ...pokemon};
+  }
+
+  goToPokemon(id: number){
+    this.router.navigate(['/pokemon',id]);
   }
 
 }

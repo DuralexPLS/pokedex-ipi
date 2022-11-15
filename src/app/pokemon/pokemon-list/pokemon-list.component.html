@@ -4,7 +4,7 @@
         <!--g-5 pour le padding-->
         <div *ngFor = "let pokemon of pokemonArray" (click)="setCurrentPokemon(pokemon)">
             <!--ngFor pour afficher les elements d'une liste-->
-            <div class="card flex-row" id="pkmnCard" pokemonBorderCard>
+            <div class="card flex-row" id="pkmnCard" pokemonBorderCard (click)="goToPokemon(pokemon.id!)">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{ pokemon.name }}
@@ -22,5 +22,6 @@
         </div>
     </div>
 </div>
-
+<!--
 <app-pokemon-display *ngIf="currentPokemon" [model]="currentPokemon" (emitPokemon)="updateList($event)"></app-pokemon-display>
+-->
