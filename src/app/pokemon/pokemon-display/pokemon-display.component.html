@@ -1,19 +1,19 @@
 
-<div class="row">
+<div class="row" *ngIf="model">
     <div class="col-4">
     </div>
     <div class="col-4">
-        <div class="card flex-row" *ngIf="pokemon">
+        <div class="card flex-row">
             <div class="card-body">
                 <h5 class="card-title">
-                    {{ pokemon.name }}
+                    {{ model.name }}
                 </h5>
                 <div class="card-text">
-                    <div class="{{ pokemon.type1! | pokemonTypeColor }} rounded-pill">
-                        {{ pokemon.type1 }}
+                    <div class="{{ model.type1! | pokemonTypeColor }} rounded-pill">
+                        {{ model.type1 }}
                     </div>
-                    <div class="{{ pokemon.type2! | pokemonTypeColor }} rounded-pill">
-                        {{ pokemon.type2 }}
+                    <div class="{{ model.type2! | pokemonTypeColor }} rounded-pill">
+                        {{ model.type2 }}
                     </div>
                 </div>
             </div>

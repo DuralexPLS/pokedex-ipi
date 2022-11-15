@@ -40,10 +40,15 @@ export class PokemonDisplayComponent implements OnInit {
     this.pokemonArray.push(new Pokemon(1,"Bulbizarre","Plante","Poison"));
     this.pokemonArray.push(new Pokemon(2,"Pikachu","Electrik",""));
 
-    const pokemonId: string|null = this.route.snapshot.paramMap.get('id');
-    if(pokemonId){
-      this.pokemon = this.pokemonArray.find(pokemon => pokemon.id == +pokemonId);
-    }
+    this.route.params.subscribe(params => {
+      if(params['id']){
+        let pokemonId = params['id'];
+        this.model = null;
+        setTimeout(() => { 
+          this.model = this.pokemonArray.find(model => model.id == pokemonId)!;
+          this.pokemonForm.patchValue(this.model!)},10);
+      }
+    })
   }
 
   onSubmit(){
@@ -61,7 +66,7 @@ export class PokemonDisplayComponent implements OnInit {
   }
 
   goToPokemonList(){
-    this.router.navigate(['/pokemon-list']);
+    this.router.navigate(['/pokemon']);
   }
 
 }

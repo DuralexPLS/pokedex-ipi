@@ -4,9 +4,12 @@ import { PokemonDisplayComponent } from './pokemon/pokemon-display/pokemon-displ
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
 
 const routes: Routes = [
-  {path: 'pokemon-list', component: PokemonListComponent},
-  {path: 'pokemon/:id', component: PokemonDisplayComponent},
-  {path: '', redirectTo: 'pokemon-list', pathMatch: 'full'},
+  {path: 'pokemon', component: PokemonListComponent,
+   children: [
+    {path: 'edit/:id', component: PokemonDisplayComponent},
+    {path: 'create', component: PokemonDisplayComponent}
+   ]},
+  {path: '', redirectTo: 'pokemon', pathMatch: 'full'},
   //{path: '**', component: PageNotFoundComponent}
 ];
 

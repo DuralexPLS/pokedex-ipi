@@ -30,7 +30,11 @@ export class PokemonListComponent implements OnInit {
   }
 
   goToPokemon(id: number){
-    this.router.navigate(['/pokemon',id]);
+    this.router.navigate(['/pokemon','edit',id]);
+  }
+
+  goToCreate(){
+    this.router.navigate(['/pokemon','create']);
   }
 
 }

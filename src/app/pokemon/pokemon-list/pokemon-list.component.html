@@ -1,7 +1,11 @@
 <div class="container">
+    <div>
+        <button type="button" class="btn btn-secondary" (click)="goToCreate()">Create</button>
+    </div>
     <!--Container pour la grid-->
     <div class="row g-5 row-cols-1 row-cols-md-3 g-4">
         <!--g-5 pour le padding-->
+        
         <div *ngFor = "let pokemon of pokemonArray" (click)="setCurrentPokemon(pokemon)">
             <!--ngFor pour afficher les elements d'une liste-->
             <div class="card flex-row" id="pkmnCard" pokemonBorderCard (click)="goToPokemon(pokemon.id!)">
@@ -22,6 +26,11 @@
         </div>
     </div>
 </div>
+
+<router-outlet>
+    
+</router-outlet>
+
 <!--
 <app-pokemon-display *ngIf="currentPokemon" [model]="currentPokemon" (emitPokemon)="updateList($event)"></app-pokemon-display>
 -->

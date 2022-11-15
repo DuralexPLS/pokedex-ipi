@@ -5,6 +5,7 @@ import { PokemonTypeColorPipe } from './pokemon-list/pokemon-type-color.pipe';
 import { BorderCardDirective } from './pokemon-list/border-card.directive';
 import { PokemonDisplayComponent } from './pokemon-display/pokemon-display.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   exports: [
     PokemonListComponent,
