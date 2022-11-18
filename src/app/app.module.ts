@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { PokemonRoutingModule } from './pokemon/pokemon-routing.module';
+import { AdminRoutingModule } from './admin/admin-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PokemonRoutingModule } from './pokemon/pokemon-routing.module';
   imports: [
     BrowserModule,
     PokemonRoutingModule,
+    AdminRoutingModule,
     AppRoutingModule,
     NgbModule,
     PokemonModule,
