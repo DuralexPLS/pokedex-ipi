@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 import { IPokemon, Pokemon } from 'src/app/pokemon.model';
 
 @Component({
@@ -17,6 +18,7 @@ export class PokemonListComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonArray.push(new Pokemon(1,"Bulbizarre","Plante","Poison"));
     this.pokemonArray.push(new Pokemon(2,"Pikachu","Electrik",""));
+    
   }
 
   setCurrentPokemon(pokemon: IPokemon){
@@ -35,6 +37,9 @@ export class PokemonListComponent implements OnInit {
 
   goToCreate(){
     this.router.navigate(['/pokemon','create']);
+  }
+  goToAdmin(){
+    this.router.navigate(['admin']);
   }
 
 }
